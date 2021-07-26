@@ -1,19 +1,6 @@
 <?php
 
-$errors = "";
-
-$db = mysqli_connect("localhost", "root", "", "movies");
-
-if (isset($_POST['submit'])) {
-    if (empty($_POST['movie'])) {
-        $errors = "Please enter a movie title!";
-    }else{
-        $task = $_POST['movie'];
-        $sql = "INSERT INTO movies (movie) VALUES ('$movie')";
-        mysqli_query($db, $sql);
-        header('location: index.php');
-    }
-}
+include_once 'includes/database-conn.inc.php'
 
 ?>
 
@@ -27,19 +14,30 @@ if (isset($_POST['submit'])) {
 </head>
 
 <body>
+
 <h1>Movimizer</h1>
 
-<form method="POST" action="index.php" class="input_form">
+<form action="includes/movies.inc.php" method="POST">
     <label for="movie" id="movie">Movie to Watch:</label>
-    <input type="text" name="movie" placeholder="Movie Name">
+    <input type="text" name="movie" placeholder="Movie Name" required>
     <br>
-    <button type="submit" name="submit" id="add_btn">Add Movie</button>
+    <button type="submit" name="submit" id="submit">Add Movie</button>
 </form>
-
 
 <h2>To Watch List:</h2>
 
+<ul>
+   <?php 
+		$movies = mysqli_query($conn, "SELECT * FROM movies");
+        $resultCheck = mysqli_num_rows($movies);
 
-    
+        if ($resultCheck > 0) {
+            while ($row = mysqli_fetch_assoc($movies)) {
+                echo "<li>" . $row['movie'] . "</li>";
+            }
+        }
+    ?>
+   
+</ul>  
 </body>
 </html>
