@@ -26,8 +26,7 @@ include_once 'includes/database-conn.inc.php'
 
     <h2>To Watch List:</h2>
 
-    <table>
-    <tbody>
+    <ul>
     <?php 
             $movies = mysqli_query($conn, "SELECT * FROM movies");
             $resultCheck = mysqli_num_rows($movies);
@@ -50,26 +49,28 @@ include_once 'includes/database-conn.inc.php'
             }
             ?>
 
-    </tbody>
+    </ul>
 
-    
-    
-    </table> 
+    <button type="button">Select Movie To Watch</button>
 
-    <button>
-        Select Movie
-    </button>
-    
-    <?php
-    $selected_movie = array_rand($movies, 1);
-    
-    ?>
+    <p></p>
 
-    <p>
-    <?php
-    echo $selected_movie;
-    ?>
-    </p>
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $("button").click(function(){
+
+            $.ajax({
+                type: 'POST',
+                url: 'script.php',
+                success: function(data) {
+                    alert(data);
+                    $("p").text(data);
+
+                }
+            });
+        });
+    });
+    </script>
 
 </body>
 </html>
