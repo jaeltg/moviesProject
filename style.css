@@ -1,0 +1,86 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 20px;
+}
+
+.random-movie {
+    background-image: url("https://www.lancashiretelegraph.co.uk/resources/images/4358851/");
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 300px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.title {
+    font-family: 'Righteous', cursive;
+    font-size: 60px;
+    text-align: center;
+    color: #6FFFE9;
+    -webkit-text-stroke-width: 1.5px;
+    -webkit-text-stroke-color: black;
+}
+
+.movie-form {
+    background-color: #383B53;
+    padding: 20px;
+    text-align: center;
+    color: white;
+}
+
+.random-button {
+    margin-top: 70px;
+    font-size: 30px;
+}
+
+.movie-list {
+    margin-top: 20px;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+}
+
+button {
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 20px;
+    background-color: #6FFFE9;
+    border: none;
+    border-radius: 8px;
+    padding: 8px;
+    color: black;
+    font-weight: bold;
+}
+
+input {
+    font-family: 'Montserrat', sans-serif;
+    margin-left: 20px;
+    border-radius: 8px;
+    padding: 5px;
+}
+
+li {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+h2 {
+    margin-bottom: 25px;
+    font-size: 25px;
+}
+
+.watched-button {
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 30px;
+    background-color: #6FFFE9;
+    border: none;
+    border-radius: 8px;
+    padding: 6px;
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+    margin-left: 10px;
+    text-decoration: none;
+}
